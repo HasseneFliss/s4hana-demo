@@ -67,14 +67,8 @@ jobs:
         tf_actions_version: 0.14.8
         tf_actions_subcommand: 'apply'
         tf_actions_working_dir:  "./06_vm_linux"
-        
-    - name: Run script file
+      
+    - name: Call terraform output
       run: |
-        terraform output vm_ip
-        export vmss_ip=$(terraform output vm_ip)
-        echo $vm_ip
-        echo $vmss_ip
-        echo "host1 ansible_ssh_port=50000 ansible_ssh_host=$vmss_ip" > inventory
-        echo "host2 ansible_port=50001 ansible_ssh_host=$vmss_ip" >> inventory
-        cat inventory    
-      shell: bash
+        output=$(terraform output vm_ip)
+        echo $output
