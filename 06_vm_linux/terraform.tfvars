@@ -1,4 +1,4 @@
-resource_group_name         = "S4HANA"
+resource_group_name         = "S4HANA-demo"
 resource_group_location     = "Japan East"
 virtual_network_name        = "vnetprod019"
 subnet_name                 = "subnet019"
