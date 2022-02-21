@@ -39,10 +39,6 @@ jobs:
         tf_actions_subcommand: 'fmt'
         tf_actions_working_dir:  "./06_vm_linux"
     
-    - name: Setup Terraform
-      uses: hashicorp/terraform-github-actions@master
-      with:
-        terraform_wrapper: false
          
     - name: 'Terraform Init'
       uses: hashicorp/terraform-github-actions@master
@@ -77,3 +73,12 @@ jobs:
       run: |
         output=$(terraform output vm_ip)
         echo $output
+        
+    - name: terraform-output
+    # You may pin to the exact commit or the version.
+    # uses: dflook/terraform-output@00e9b1d55923b433370b21d5c0830cc11d694bd9
+      uses: dflook/terraform-output@v1.4.1
+      with:
+        # Path to the terraform configuration
+        path: "./06_vm_linux"
+ 
