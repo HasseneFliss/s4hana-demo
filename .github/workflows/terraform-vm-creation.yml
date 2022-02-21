@@ -31,11 +31,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       
-    - name: Terraform destroy
-      uses: daniyalj/terraform-destroy-actions@v3
-      with:
-        org_name: Avaxia lab
-        repo_name: ./06_vm_linux
 
     - name: 'Terraform Format'
       uses: hashicorp/terraform-github-actions@master
