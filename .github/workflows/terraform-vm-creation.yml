@@ -38,6 +38,11 @@ jobs:
         tf_actions_version: 0.14.8
         tf_actions_subcommand: 'fmt'
         tf_actions_working_dir:  "./06_vm_linux"
+    
+    - name: Setup Terraform
+      uses: hashicorp/terraform-github-actions@master
+      with:
+        terraform_wrapper: false
          
     - name: 'Terraform Init'
       uses: hashicorp/terraform-github-actions@master
