@@ -68,17 +68,17 @@ jobs:
         tf_actions_version: 0.14.8
         tf_actions_subcommand: 'apply'
         tf_actions_working_dir:  "./06_vm_linux"
-      
+
+    - name: 'Terraform Output'
+      id: terraform
+      uses: hashicorp/terraform-github-actions@master
+      with:
+          tf_actions_version: 0.14.8
+          tf_actions_subcommand: 'output'
+          tf_actions_working_dir: '.'
+        
     - name: Call terraform output
       run: |
-        output=$(terraform output vm_ip)
-        echo $output
-        
-    - name: terraform-output
-    # You may pin to the exact commit or the version.
-    # uses: dflook/terraform-output@00e9b1d55923b433370b21d5c0830cc11d694bd9
-      uses: dflook/terraform-output@v1.4.1
-      with:
-        # Path to the terraform configuration
-        path: "./06_vm_linux"
+        terraform output vm_ip > ip.txt
+        cat ip.txt
  
